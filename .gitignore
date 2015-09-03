@@ -1,0 +1,24 @@
+node_modules
+dist
+.tmp
+.sass-cache
+bower_components
+.floo
+.flooignore
+app/bower_components
+.DS_Store
+
+#databse name
+/server/config/databasename
+
+#database password
+/server/config/databasepassword
+
+#database username
+/server/config/databaseusername
+
+#host
+/server/config/host
+
+# Ignore actual authentication secret
+/server/config/secret

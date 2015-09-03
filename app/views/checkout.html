@@ -1,0 +1,72 @@
+<!-- navbar start -->
+<script>$(document).foundation('reflow');</script>
+<div ng-controller="checkoutController"> 
+ 
+<div ng-style="{'background-image':'url(' + room.heroImage + ')'}" style="background-repeat:repeat-x; width:100%; height:400px"></div>
+
+  <div class="roomsummary">
+    <div class="row">
+      <div class="medium-12 columns">
+        <h1><em>{{room.roomName}}</em></h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="medium-12 columns">
+        <div><p>{{room.venueName}}</p></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="medium-1 columns center">
+        <img class="coimage"src="/images/doorhandle.png">
+        <p class="cotext">{{room.type}}</p>
+      </div>
+      <div class="medium-1 columns">
+        <img class="coimage" src="/images/users.png">
+        <p class="cotext">{{room.receptionCapacity}} Guests</p>
+      </div>
+      <div class="medium-1 columns">
+        <img class="coimage" src="/images/bank-cards-32.png">
+        <p class="cotext">Minimum: ${{room.minSpend | number: fractionSize}} </p>
+      </div>
+      <div class="medium-1 columns">
+        <img class="coimage" src="/images/time.png">
+        <p class="cotext">{{room.eventDuration}} Hours</p>
+      </div>
+      <div class="medium-1 columns end">
+        <img class="coimage" src="/images/tableround.png">
+        <p class="cotext">{{room.layouts}} Layouts</p>
+      </div>
+    </div>
+  </div>
+  <div>    
+    <dl class="sub-nav">
+    <dd id="roomtab" class="active" ><a id="room" ng-click="toRoom()">Room</a></dd>
+    <dd id="menutab"><a id="menu" ng-click="toMenu()">Menu</a></dd>
+    </dl>  
+</div>
+</div>
+
+
+
+<div class="row">
+  <div class="medium-9 columns" >
+    <!-- <div class="sticky">
+      <nav data-topbar role="navigation" data-options="is_hover: true" class="top-bar">   
+        <section class="top-bar-section">
+          <ul class="left">
+            <li><a ui-sref="checkout.room" id="room" ng-click="select()" target="_self">Room</a>
+            </li>
+            <li><a ui-sref="checkout.menu" id="menu" ng-click="select()" target="_self">Menu</a>
+            </li>
+          </ul>
+        </section>
+      </nav>
+    </div>-->
+    <div ng-controller="roomController">
+      <div ui-view=""></div>
+    </div>
+  </div> 
+  <div class="medium-3 columns">
+    <div ui-view="checkoutbox"></div>
+  </div>
+</div>

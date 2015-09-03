@@ -1,0 +1,205 @@
+<!-- beginning of active box -->
+<div class="panel row" ng-controller="checkoutController">
+  <span class="small-4 columns">
+  </span>
+  <span class="small-4 columns">
+    <div class="row">
+      <span class="small-6 columns">
+        <img src="images/door.png"> 
+      </span>
+      <p class="small-6 columns dull"><strong>ROOM</strong>
+      </p>
+    </div>
+  </span>
+
+  <span id= "small-4 columns">
+    <div class="row">
+      <p class="small-6 columns dull">
+        {{room.roomName}}
+      </p>
+      <span class="small-6 columns">
+      </span>
+    </div>
+  </span>
+
+<hr>
+
+
+<!-- event part of panel start -->
+
+<span class="small-4 columns">
+</span>
+
+
+<span class="small-4 columns">
+  <div class="row">
+    <span class="small-6 columns">
+      <img src="images/calendar.png"> 
+    </span>
+    <p class="small-6 columns"><strong>EVENT</strong></p>
+    </span>
+    </p>
+  </div>
+</span>
+
+ <span id= "small-4 columns">
+    <div class="row">
+      <p class="small-6 columns dull">
+        {{params.searchParams.eventType}}
+      </p>
+      <span class="small-6 columns">
+      </span>
+    </div>
+  </span>
+
+<span id= "small-4 columns">
+  <div class="row">
+    <span class="small-6 columns">
+    </span>
+    <span class="small-6 columns">
+    </span>
+  </div>
+</span>
+
+<!-- event part of panel end -->
+
+<span ng-show="eventConfirmed" class="small-12 columns">
+  <div class="row">
+    <p class="small-12 columns"> Your event is reserved for {{params.searchParams.date}} from {{params.searchParams.startTime}} to {{params.searchParams.endTime}} for {{params.searchParams.guests}} guests</p>
+  </div>
+</span>
+
+
+<form name="dateForm" ng-hide="eventConfirmed">
+  <span class="small-2 columns" id="changepadding">
+    <label> Guests </label>
+    <input type="number" ng-model="params.searchParams.guests" name="guests" ng-max="room.receptionCapacity" required>
+  </span>
+
+  <span class="small-4 columns" id="changepadding">
+    <label> Date </label>
+    <input id="datepicker" placeholder="Date" type="text" ng-model="params.searchParams.date" ng-change="dateSearch()" name="date" required>
+  </span>
+
+  <span class= "small-3 columns" id="changepadding">
+    <label> Start Time </label>
+    <input class="timepicker" placeholder="Time" type="text" ng-change="setMinEndTime(); checkTime(params.searchParams.startTime, params.searchParams.endTime)" ng-model="params.searchParams.startTime" name="startTime" required>
+  </span>
+
+  <span class= "small-3 columns" id="changepadding">
+    <label> End Time </label>
+    <input class="timepicker" id="eventend" placeholder="Time" type="text" ng-model="params.searchParams.endTime" ng-change="checkTime(params.searchParams.startTime, params.searchParams.endTime)" name="endTime" required>
+  </span>
+
+<!-- event part of panel end -->
+  <div class="text-center">
+    <p ng-show="available" class="help-block"> Your time range is not available! </p>
+  </div>
+  <div class="text-center">
+    <p ng-show="dateForm.guests.$error.max" class="help-block">This room cannot accommodate that many guests!</p>
+  </div>
+  
+  <div class="text-center">
+    <p ng-show="dateForm.guests.$invalid || dateForm.date.$invalid || dateForm.startTime.$invalid || dateForm.endTime.$invalid " class="help-block"> Please complete the above before proceeding. </p>
+    <button type="submit" class="button changepadding" ng-disabled="dateForm.$invalid || available" ng-click="toMenu()">Next</button>
+  </div>
+</form>
+
+<div ng-hide="menuLabel">
+  <hr>
+    <span class="small-4 columns">
+      <div class="row">
+        <span class="small-6 columns">
+          <img src="images/menu.png"> 
+        </span>
+        <p class="small-6 columns"><strong>MENU</strong></p>
+      </div>
+    </span>
+    <div ng-hide="menuFinal">
+      <span id= "small-4 columns">
+         <div class="row">
+           <p class="small-6 columns dull">
+             {{checkoutMenu.checkoutMenu.name}}
+           </p>
+           <span class="small-6 columns">
+           </span>
+         </div>
+       </span>
+       </div>
+
+    <div ng-hide="menuName">
+    <span class="small-12 columns">
+      <div class="row text-center">
+        <h5 class="small-12 columns"> {{checkoutMenu.checkoutMenu.name}} </h5>
+      </div>
+      <div class="row text-center">
+        <h4 class="small-12 columns"> {{(checkoutMenu.checkoutMenu.price * params.searchParams.guests) | currency}} </h4>
+      </div>
+    </span>
+    </div>
+</div>
+
+
+  <div ng-hide="menuConfirmed">
+    <span id= "small-4 columns">
+      <div class="row">
+        <span class="small-6 columns">
+        </span>
+        <span class="small-6 columns">
+        </span>
+      </div>
+    </span>
+    <div class="text-center">
+      <p ng-show="!roomData.checkoutMenu.name" class="help-block">Please select a menu before proceeding.</p>
+      <button type="submit" class="button" ng-disabled="!Auth.loggedIn || !roomData.checkoutMenu.name" ng-click="toPay()">Reserve</button>
+      <p ng-show="!Auth.loggedIn" class="help-block">Please Sign Up or Log In!</p>
+    </div>
+  </div>
+
+  <div ng-hide="showSummary">
+    <hr>
+    <p class="text-center"><strong>Summary</strong></p>
+    <div class="row">
+      <p class="small-8 columns">
+      Menu
+      </p>
+      <p class="small-4 columns">
+      {{(checkoutMenu.checkoutMenu.price * params.searchParams.guests) | currency}}
+      </p>
+    </div>
+    <div class="row">
+      <p class="small-8 columns">
+      {{checkoutMenu.checkoutMenu.price | currency}} per guest x {{params.searchParams.guests}} guests
+      </p>
+      <p class="small-4 columns">
+      </p>
+    </div>
+    <div class="row">
+      <p class="small-8 columns">
+      Total Taxes and Gratuity
+      </p>
+      <p class="small-4 columns">
+      {{((checkoutMenu.checkoutMenu.price * params.searchParams.guests) * (checkoutMenu.currentRoom.autogratRate/100) + (checkoutMenu.checkoutMenu.price * params.searchParams.guests) * (checkoutMenu.currentRoom.taxRate/100)) | currency}}
+      </p>
+    </div>
+    <hr>
+    <div class="row">
+      <h4 class="small-7 columns">
+      Total
+      </h4>
+      <h4 class="small-5 columns">
+      {{((checkoutMenu.checkoutMenu.price * params.searchParams.guests) + (checkoutMenu.checkoutMenu.price * params.searchParams.guests) * (checkoutMenu.currentRoom.autogratRate/100) + (checkoutMenu.checkoutMenu.price * params.searchParams.guests) * (checkoutMenu.currentRoom.taxRate/100)) | currency}}
+      </h4>
+    </div>
+    <div class="row">
+      <p class="small-8 columns">
+      includes taxes and gratuity
+      </p>
+      <p class="small-4 columns">
+      </p>
+    </div>
+  </div>
+
+
+
+</panel>

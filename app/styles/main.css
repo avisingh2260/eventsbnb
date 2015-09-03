@@ -1,0 +1,254 @@
+#prevcheckout {
+  background-color: darkgray;
+  color: white;
+}
+
+#active {
+  color: white;
+  text-align: center;
+}
+
+.activecheckout {
+  background-color: white;
+}
+
+.dull {
+  color: lightgray;
+  text-align: center;
+}
+
+.searchbox {
+  width: 85%;
+  position: absolute;
+  bottom: 100px;
+  padding: 2%;
+  border-radius: 5px;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.7);
+  margin: auto;
+}
+
+.searchbox .large-1, .searchbox .large-2, .searchbox input, .searchbox button {
+  padding-left: 1px;
+  padding-right: 1px;
+}
+
+#changepadding {
+  padding: 10px 1px;
+}
+
+/*# sourceMappingURL=main.css.map */
+
+#video1{   
+    position:absolute;
+    top:50px;
+    left:0px;
+    
+    min-width:1%;
+    width:100%;
+    /*height:100%;*/
+}
+
+#mainOverlapWrap{
+    /*z-index:1*/;
+    position:relative;
+    width:100%;
+    height:100%;
+}
+
+form h2 {
+  color: #ffffff;
+}
+
+.lgnMenu {
+  background-color: red;
+}
+#paymentform {
+  background-color: white;
+  height: 700px;
+  width: 100%;
+  padding: 5%;
+  color: gray;
+}
+
+.inputform {
+  height: 35px;
+  width: 500px;
+}
+
+.roomimage {
+  background-size: auto auto;
+  background-repeat: no-repeat;
+  background-position: center; 
+  width: 100%;
+  height: 14rem;
+  /*padding-top: 66.64%;*/
+  padding-bottom: 5%;
+  /*position: relative;*/
+}
+
+.viewurl {
+  display: block;
+  background-color: Transparent;
+  border: 1px solid white;
+  color: white;
+  font-size: 200%;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, 40%);
+}
+
+.viewurl button:hover {
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+}
+
+.roomimage button {
+  text-align: center;
+  vertical-align: center;
+}
+
+.centercircle {
+  position: absolute;
+  top: 0;
+  bottom:0; 
+  left: 0; 
+  right:0;
+  margin-top:auto;
+  margin-bottom:8%;
+  margin-left:auto;
+  margin-right:auto;
+  border-radius: 30px;
+  height: 50px;
+  width: 50px;
+  border: 2px solid white;
+}
+
+.circle {
+  border-radius: 30px;
+  height: 50px;
+  width: 50px;
+  border: 2px solid white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.spacer {
+  height: 75px;
+}
+
+.sub-nav {
+  background-color: #aaa;
+  vertical-align: center;
+  position: relative;
+  top: 50%;
+  padding: 0;
+}
+
+.sub-nav {
+  width: 85%;
+  padding: 0px;
+  left: 0;
+  right: 0;
+  background-color: gray; /*rgba(0,0,0,0.7);*/
+  margin: auto;
+}
+
+.sub-nav input, .sub-nav button, .sub-nav form {
+  padding: 1px;
+  margin: 0;
+}
+
+.favoriteresult {
+  position: absolute;
+  top: 20%;
+  right: 2em;
+}
+.spacer {
+  height: 20px;
+}
+
+.resultscontainer {
+  background-color: #ffffff;
+  width: 85%;
+  height: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.roomsummary {
+  background-color: #ffffff;
+}
+
+.footer {
+  width: 100%;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.coimage {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+}
+
+.cotext {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.coreceipt {
+  background-color: #ffffff;
+  width: 95%;
+  height: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 10%;
+}
+
+
+#payment {
+margin-top: 10px;
+}
+
+.bookingscontainer {
+  background-color: #ffffff;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 3%;
+  margin-top:1%;
+}
+
+br {
+  line-height: 10px;
+}
+
+.bookingcontact div {
+  border: 1px solid gray;
+}
+
+#favoriteheader {
+  padding: 2%;
+}
+
+.paymentheight {
+  height: 35px;
+}
+
+#creditcardnumber {
+  width: 300px;
+}
+
+#creditcardsecurity {
+  width: 75px;
+}
